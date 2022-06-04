@@ -9,7 +9,9 @@ const refs = {
     minutes: document.querySelector("span[data-minutes]"),
     seconds: document.querySelector("span[data-seconds]"),
 };
-
+let currentDate = new Date();
+let selectedDates = new Date();
+refs.startBtn.disabled = true;
 
 const options = {
   enableTime: true,
@@ -18,9 +20,17 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
+    if (selectedDates < currentDate) {
+      window.alert("Please choose a date in the future");
+    } else {
+      refs.startBtn.disabled = false;
+      refs.startBtn.addEventListener('click', timer(selectedDates[0]));
+    }
   },
 };
-// flatpickr(refs.input, options);
+flatpickr("#datetime-picker", options);
+refs.startBtn.addEventListener("click", timer(selectedDates));
+
 class Timer {
   constructor({onTick}){
     this.intervalId = null;
@@ -66,7 +76,6 @@ const timer = new Timer({
   onTick: updateClockfase,
 });
 
-refs.startBtn.addEventListener("click", timer.start());
 
 
 function updateClockfase({ days, hours, minutes, seconds }) {
