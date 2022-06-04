@@ -25,7 +25,7 @@ function onSubmitForm(e) {
           Notify.success(`Promise resolved at position ${position} with delay ${delay}`);
         }).catch(({ position, delay }) => {
           console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-          Notify.error(`Promise rejected at position ${position} with delay ${delay}`);
+          Notify.failure(`Promise rejected at position ${position} with delay ${delay}`);
         });
     }
   }, delayInput);
