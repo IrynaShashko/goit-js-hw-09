@@ -16,3 +16,15 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.value{
+  font-size: 25px;
+  font-weight: bold;
+}
+.btn{
+  background: #F0D1A5;
+  border-radius: 22px;
+  width: 170px;
+  height: 40px;
+  font-size: 20px;
+}

@@ -1,4 +1,5 @@
 let timeoutId = null;
+
 const refs = {
     body: document.querySelector("body"),
     startBtn: document.querySelector("button[data-start]"),
