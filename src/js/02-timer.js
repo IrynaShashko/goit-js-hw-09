@@ -29,7 +29,7 @@ const options = {
   },
 };
 flatpickr("#datetime-picker", options);
-refs.startBtn.addEventListener("click", timer(selectedDates));
+
 
 class Timer {
   constructor({onTick}){
@@ -76,7 +76,7 @@ const timer = new Timer({
   onTick: updateClockfase,
 });
 
-
+refs.startBtn.addEventListener("click", timer(selectedDates));
 
 function updateClockfase({ days, hours, minutes, seconds }) {
   refs.days.innerText = `${days}`;
