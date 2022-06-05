@@ -17,9 +17,9 @@ function onSubmitForm(e) {
   
   setTimeout(() => {
     for (let i = 0; i < amountInput; i += 1) {
-      let msCount = delayInput + stepInput * i;
+      let msPromiseCount = delayInput + stepInput * i;
       const position = i + 1;
-      createPromise(position, msCount)
+      createPromise(position, msPromiseCount)
         .then(({ position, delay }) => {
           console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
           Notify.success(`Promise resolved at position ${position} with delay ${delay}`);
@@ -27,9 +27,9 @@ function onSubmitForm(e) {
           console.log(`❌ Rejected promise ${position} in ${delay}ms`);
           Notify.failure(`Promise rejected at position ${position} with delay ${delay}`);
         });
-    }
-  }, delayInput);
-}
+      }
+    }, delayInput);
+  }
 
   function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
